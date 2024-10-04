@@ -1,0 +1,107 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    background-color: #2C1A45;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  header p {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  section.container {
+    flex: 1;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  
+  .card {
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #fff;
+    margin-bottom: 2.5rem; 
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #2C1A45;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  a.text-decoration-none {
+    text-decoration: none;
+  }
+  
+  a:hover .card {
+    border-color: #2C1A45;
+  }
+  
+  a:hover .card-title {
+    color: #2C1A45;
+  }
+  
+  footer {
+    background-color: #0A1B39;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .card {
+      margin-bottom: 1rem;
+      margin: 10%;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    header p {
+      font-size: 1rem;
+    }
+  }
+  

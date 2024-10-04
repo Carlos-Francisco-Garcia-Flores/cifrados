@@ -1,0 +1,114 @@
+<header class="color2 text-white py-4 d-flex justify-content-between align-items-center px-4">
+  <div>
+    <h1 class="mb-0">Cifrado de datos</h1>
+  </div>
+  <div>
+    <a routerLink="/" class="btn btn-morado">Volver al Inicio</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="form-container">
+        <form [formGroup]="cifradoForm" (ngSubmit)="onSubmit()" class="form">
+          <p class="title">Ejemplo de cifrado de datos</p>
+          <p class="message">Ingresa los datos que se solicitan</p>
+
+          <div class="flex">
+            <label>
+              <input class="input" formControlName="nombre" type="text" placeholder="" required>
+              <span>Nombre</span>
+            </label>
+            <div *ngIf="cifradoForm.get('nombre')?.touched && cifradoForm.get('nombre')?.invalid" class="error-message">
+              <small *ngIf="cifradoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+              <small *ngIf="cifradoForm.get('nombre')?.errors?.['minlength']">Debe tener al menos 2 caracteres.</small>
+            </div>
+          </div>
+
+          <div class="flex">
+            <label>
+              <input class="input" formControlName="apellido" type="text" placeholder="" required>
+              <span>Apellido</span>
+            </label>
+            <div *ngIf="cifradoForm.get('apellido')?.touched && cifradoForm.get('apellido')?.invalid" class="error-message">
+              <small *ngIf="cifradoForm.get('apellido')?.errors?.['required']">El apellido es obligatorio.</small>
+            </div>
+          </div>
+
+          <label>
+            <input class="input" formControlName="email" type="email" placeholder="" required>
+            <span>Correo electrónico</span>
+          </label>
+          <div *ngIf="cifradoForm.get('email')?.touched && cifradoForm.get('email')?.invalid" class="error-message">
+            <small *ngIf="cifradoForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+            <small *ngIf="cifradoForm.get('email')?.errors?.['email']">Formato de correo incorrecto.</small>
+          </div>
+
+          <label>
+            <input class="input" formControlName="password" type="password" placeholder="" required>
+            <span>Contraseña</span>
+          </label>
+          <div *ngIf="cifradoForm.get('password')?.touched && cifradoForm.get('password')?.invalid" class="error-message">
+            <small *ngIf="cifradoForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+            <small *ngIf="cifradoForm.get('password')?.errors?.['minlength']">Debe tener al menos 6 caracteres.</small>
+          </div>
+
+          <label>
+            <input class="input" formControlName="tcredito" type="text" placeholder="" required>
+            <span>Tarjeta de crédito</span>
+          </label>
+          <div *ngIf="cifradoForm.get('tcredito')?.touched && cifradoForm.get('tcredito')?.invalid" class="error-message">
+            <small *ngIf="cifradoForm.get('tcredito')?.errors?.['required']">El número de tarjeta es obligatorio.</small>
+            <small *ngIf="cifradoForm.get('tcredito')?.errors?.['pattern']">El número de tarjeta debe tener 16 dígitos.</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="metodo" class="form-label">Método de cifrado:</label>
+            <select class="form-control" formControlName="metodo" (change)="onCifradoChange()">
+              <option value="blowfish">Blowfish (Simétrico)</option>
+              <optgroup label="Hash (SHA-3)">
+                <option value="sha3-224">SHA3-224</option>
+                <option value="sha3-256">SHA3-256</option>
+                <option value="sha3-384">SHA3-384</option>
+                <option value="sha3-512">SHA3-512</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="mb-3" *ngIf="mostrarClave">
+            <label for="clave" class="form-label">Clave de Cifrado (Blowfish):</label>
+            <input formControlName="clave" class="form-control" id="clave" placeholder="Ingrese la clave para Blowfish" />
+          </div>
+
+          <button class="submit" type="submit" [disabled]="cifradoForm.invalid">Cifrar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Datos cifrados y descifrados -->
+    <div class="col-md-6">
+      <div class="form-container-cifrado" *ngIf="datosCifrados">
+        <h1>Datos Cifrados</h1>
+        <p>Nombre: {{ datosCifrados.nombre }}</p>
+        <p>Apellido: {{ datosCifrados.apellido }}</p>
+        <p>Correo electrónico: {{ datosCifrados.email }}</p>
+        <p>Contraseña: {{ datosCifrados.password }}</p>
+        <p>Tarjeta de crédito: {{ datosCifrados.tcredito }}</p>
+
+        <button *ngIf="cifradoForm.get('metodo')?.value === 'blowfish'" class="submit" (click)="onDescifrar()" type="button">Descifrar</button>
+      </div>
+
+      <!-- Mostrar datos descifrados solo si se selecciona Blowfish -->
+      <div class="form-container-cifrado" *ngIf="datosDescifrados">
+        <h1>Datos Descifrados</h1>
+        <p>Nombre: {{ datosDescifrados.nombre }}</p>
+        <p>Apellido: {{ datosDescifrados.apellido }}</p>
+        <p>Correo electrónico: {{ datosDescifrados.email }}</p>
+        <p>Contraseña: {{ datosDescifrados.password }}</p>
+        <p>Tarjeta de crédito: {{ datosDescifrados.tcredito }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<header class="color2 text-white py-4 d-flex justify-content-between align-items-center px-4">
+  <div>
+    <h1 class="mb-0">Cifrado y Descifrado ElGamal</h1>
+  </div>
+  <div>
+    <a routerLink="/" class="btn btn-morado">Volver al Inicio</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="elgamalForm" (ngSubmit)="encryptMessage()" class="form">
+      <div class="form-group">
+        <h3 class="mb-0">Ingrese el mensaje</h3>
+        <label for="message">Mensaje:</label>
+        <input type="text" id="message" formControlName="message" class="form-control" placeholder="Escribe tu mensaje"
+          required />
+        <div *ngIf="elgamalForm.get('message')?.invalid && elgamalForm.get('message')?.touched">
+          <small class="text-danger">El mensaje es obligatorio.</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="elgamalForm.invalid">
+        Cifrar
+      </button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-container-cifrado">
+      <form class="form">
+        <h3>Mensaje Cifrado</h3>
+        <p>{{ encryptedMessage ? (encryptedMessage | json) : '' }}</p>
+
+
+        <h3>Mensaje Descifrado</h3>
+        <p>{{ decryptedMessage }}</p>
+      </form>
+      <button (click)="decryptMessage()" *ngIf="encryptedMessage">Descifrar</button>
+
+
+    </div>
+  </div>
+</div>

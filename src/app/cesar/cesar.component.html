@@ -1,0 +1,57 @@
+<header class="color2 text-white py-4 d-flex justify-content-between align-items-center px-4">
+  <div>
+    <h1 class="mb-0">Cifrado César</h1>
+  </div>
+  <div>
+    <a routerLink="/" class="btn btn-morado">Volver al Inicio</a>
+  </div>
+</header>
+
+<section class="container my-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h3 class="text-center">Cifrar/Descifrar con Cifrado César</h3>
+
+      <div class="instructions">
+        <p><strong><i class="bi bi-info-circle"></i> Instrucciones:</strong></p>
+        <p>El <strong>Cifrado César</strong> funciona desplazando cada letra de tu mensaje un número determinado de posiciones en el alfabeto. Para utilizarlo:</p>
+        <ul>
+          <li>Ingresa el mensaje que deseas cifrar o descifrar.</li>
+          <li>Introduce un número de desplazamiento. Este número debe ser entero y positivo.</li>
+          <li>Selecciona si deseas cifrar o descifrar el mensaje.</li>
+          <li>Haz clic en <strong>Ejecutar</strong> para ver el resultado.</li>
+        </ul>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensaje:</label>
+          <textarea [(ngModel)]="message" name="message" class="form-control" id="message" rows="3" required></textarea>
+          <div class="error" *ngIf="messageError">{{ messageError }}</div>
+        </div>
+        <div class="mb-3">
+          <label for="shift" class="form-label">Desplazamiento:</label>
+          <input [(ngModel)]="shift" name="shift" type="number" class="form-control" id="shift" required>
+          <div class="error" *ngIf="shiftError">{{ shiftError }}</div>
+        </div>
+        <div class="mb-3">
+          <label for="operation" class="form-label">Operación:</label>
+          <select [(ngModel)]="operation" name="operation" class="form-control" id="operation">
+            <option value="encrypt">Cifrar</option>
+            <option value="decrypt">Descifrar</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Ejecutar</button>
+      </form>
+
+      <div class="mt-4">
+        <h5>Resultado:</h5>
+        <p>{{ result }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="color1 text-white text-center py-3">
+  <p>Elaborado por Carlos Francisco García Flores</p>
+</footer>

@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/cesar",
+    "/escitala",
+    "/formulario",
+    "/formularioelgamal"
+  ]
+}

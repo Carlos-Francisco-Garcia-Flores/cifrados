@@ -1,0 +1,58 @@
+.color2 {
+    background-color: #2C1A45;
+  }
+  
+  .color1 {
+    background-color: #0A1B39;
+  }
+  
+  .btn-morado {
+    background-color: #9255e7;
+    color: white;
+  }
+  
+  .btn-morado:hover {
+    background-color: #ad0d25;
+    color: white;
+  }
+  
+  .instructions {
+    background-color: #f9f9f9;
+    border-left: 5px solid #6a0dad;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .instructions ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .instructions ul li::before {
+    content: "\2022";
+    color: #6a0dad;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-right: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    background-color: #0A1B39;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  

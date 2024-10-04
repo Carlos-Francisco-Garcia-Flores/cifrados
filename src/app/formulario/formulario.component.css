@@ -1,0 +1,206 @@
+/* Estilos generales */
+.color2 {
+  background-color: #2C1A45;
+}
+
+.color1 {
+  background-color: #0A1B39;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .btn-morado {
+  background-color: #9255e7;
+  color: white;
+}
+
+header .btn-morado:hover {
+  background-color: #ad0d25;
+  color: white;
+}
+
+footer {
+  background-color: #0A1B39;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.col-md-6 {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Estilos del formulario */
+.form-container {
+  background-color: #1a1a1a;
+  padding: 5%;
+  border-radius: 10px;
+  border: 1px solid #333;
+  color: white;
+  align-items: center;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container-cifrado {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  color: white;
+
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  color: #960d9a;
+}
+
+.message,
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #b7ff00;
+  top: 0px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #2C1A45;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  background-color: #960d9a;
+  transition: 0.3s;
+}
+
+/* Estilos para los datos cifrados */
+.form-container-cifrado h1 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: #ff5b5b;
+  font-size: 12px;
+}
+
+.form-container-cifrado {
+  margin-top: 10px;
+  padding: 20px;
+  max-width: 400px; 
+}
+
+.form-container-cifrado p {
+  color: #b7ff00;
+  font-size: 16px;
+  margin: 5px 0;
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+  white-space: pre-wrap; 
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+}

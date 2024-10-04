@@ -1,0 +1,56 @@
+<header class="color2 text-white py-4 d-flex justify-content-between align-items-center px-4">
+    <div>
+      <h1 class="mb-0">Cifrado Escítala</h1>
+    </div>
+    <div>
+      <a routerLink="/" class="btn btn-morado">Volver al Inicio</a>
+    </div>
+  </header>
+  
+  <section class="container my-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h3 class="text-center">Cifrar/Descifrar con Cifrado Escítala</h3>
+  
+        <div class="instructions">
+          <p><strong>Instrucciones:</strong></p>
+          <p>El <strong>Cifrado Escítala</strong> utiliza un método de transposición en el que se organiza el mensaje en un número determinado de columnas. Para utilizarlo:</p>
+          <ul>
+            <li>Ingresa el mensaje que deseas cifrar o descifrar.</li>
+            <li>Introduce el número de columnas, que debe ser un número entero positivo.</li>
+            <li>Selecciona si deseas cifrar o descifrar el mensaje.</li>
+            <li>Haz clic en Ejecutar para ver el resultado.</li>
+          </ul>
+        </div>
+  
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="message" class="form-label">Mensaje:</label>
+            <textarea [(ngModel)]="message" name="message" class="form-control" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="columns" class="form-label">Número de columnas:</label>
+            <input [(ngModel)]="columns" name="columns" type="number" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="operation" class="form-label">Operación:</label>
+            <select [(ngModel)]="operation" name="operation" class="form-control">
+              <option value="encrypt">Cifrar</option>
+              <option value="decrypt">Descifrar</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Ejecutar</button>
+        </form>
+  
+        <div class="mt-4">
+          <h5>Resultado:</h5>
+          <p>{{ result }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="color1 text-white text-center py-3">
+    <p>Elaborado por Carlos Francisco García Flores</p>
+  </footer>
+  
